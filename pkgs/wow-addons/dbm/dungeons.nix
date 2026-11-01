@@ -3,8 +3,8 @@ githubReleaseAddon {
   name = "DBM-Dungeons";
   owner = "DeadlyBossMods";
   repo = "DeadlyBossMods";
-  rev = "r269";
-  asset = "DBM-Dungeons-r269.zip";
-  sha256 = "08jhzm83w0x79fjqqdgpywzrkh7ak05zj2zbggd3w7fg0ia6hwjx";
+  rev = "12.1.18";
+  asset = "DBM-Core-12.1.18.zip";
+  sha256 = "06v8blpyyjpc21cc2kmxynl33fq8ycr15c0a4vg0wizw1245px9r";
   subdir = ".";
 }

@@ -3,8 +3,8 @@ githubReleaseAddon {
   name = "BigWigs_MistsOfPandaria";
   owner = "BigWigsMods";
   repo = "BigWigs_MistsOfPandaria";
-  rev = "v12.0.9";
-  asset = "BigWigs_MistsOfPandaria-v12.0.9.zip";
-  sha256 = "05wsi82lb79pfhqk1ryy82ny0a91k0vdxraw185gv0sgh98kna51";
+  rev = "v12.1.0";
+  asset = "BigWigs_MistsOfPandaria-v12.1.0.zip";
+  sha256 = "19fnwk8fyqmvvarnizflpg2gxhxzc2cd7sngyfzflwig2n15vb50";
   subdir = "BigWigs_MistsOfPandaria";
 }

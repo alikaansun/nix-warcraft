@@ -3,8 +3,8 @@ githubReleaseAddon {
   name = "BigWigs_WarlordsOfDraenor";
   owner = "BigWigsMods";
   repo = "BigWigs_WarlordsOfDraenor";
-  rev = "v12.0.3";
-  asset = "BigWigs_WarlordsOfDraenor-v12.0.3.zip";
-  sha256 = "05qljk1mhskdc8vawm6wbqw4b01wqcsq1j4acrgn58r8dzfdgigr";
+  rev = "v12.1.0";
+  asset = "BigWigs_WarlordsOfDraenor-v12.1.0.zip";
+  sha256 = "1dm0gq5n7v1qgh6qczv172y1xhn6s47g82j9a3yh723fsg5gnqr8";
   subdir = "BigWigs_WarlordsOfDraenor";
 }
