@@ -74,6 +74,7 @@
     url,
     sha256,
     version,
+    curseforgeProjectId ? null,
   }:
     pkgs.stdenvNoCC.mkDerivation {
       pname = name;

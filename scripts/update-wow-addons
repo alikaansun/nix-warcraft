@@ -128,7 +128,39 @@ def latest_github_revision(repo: str) -> str:
     raise RuntimeError(f"no stable GitHub release found for {repo}")
 
 
-def latest_url(url: str, kind: str) -> tuple[str, str | None, str | None]:
+def curseforge_latest(project_id: str, url: str) -> tuple[str, str]:
+    """Return the newest stable Retail ZIP URL and version for a CurseForge project."""
+    old_filename = url.split("?", 1)[0].rsplit("/", 1)[-1]
+    prefix = re.split(r"\d", old_filename, maxsplit=1)[0]
+    files = fetch_json(
+        f"https://www.curseforge.com/api/v1/mods/{project_id}/files"
+        "?pageSize=50&index=0"
+    )["data"]
+    excluded_pattern = (
+        r"(?i)[-_.](classic|forever|vanilla|bcc|tbc|wotlk|wrath|cata|mists|mop)\b|nolib"
+    )
+    candidates = [
+        file
+        for file in files
+        if file["fileName"].startswith(prefix)
+        and file["fileName"].endswith(".zip")
+        and file.get("releaseType") == 1
+        and not re.search(excluded_pattern, file["fileName"])
+    ]
+    if not candidates:
+        raise RuntimeError(f"no suitable CurseForge release found for project {project_id}")
+    latest = max(candidates, key=lambda file: file["dateModified"])
+    file_id = latest["id"]
+    download_url = (
+        f"https://edge.forgecdn.net/files/{file_id // 1000}/{file_id % 1000}/"
+        f"{latest['fileName']}"
+    )
+    return download_url, latest["displayName"]
+
+
+def latest_url(
+    url: str, kind: str, curseforge_project_id: str | None = None
+) -> tuple[str, str | None, str | None]:
     if kind == "svnAddon":
         revision = subprocess.run(
             ["svn", "info", "--show-item", "revision", url],
@@ -150,6 +182,9 @@ def latest_url(url: str, kind: str) -> tuple[str, str | None, str | None]:
         )[0]
         download_url = metadata["UIDownload"]
         return download_url, None, metadata["UIVersion"].removeprefix("v")
+    if "forgecdn.net/files/" in url and curseforge_project_id is not None:
+        new_url, version = curseforge_latest(curseforge_project_id, url)
+        return new_url, None, version
     return url, None, None
 
 
@@ -263,7 +298,19 @@ def main() -> None:
                         )
             else:
                 url = field(block, "url", addon_name)
-                new_url, revision, version = latest_url(url, kind)
+                curseforge_project_id = None
+                if "forgecdn.net/files/" in url:
+                    project_match = re.search(
+                        r'\bcurseforgeProjectId\s*=\s*"?([0-9]+)"?;', block
+                    )
+                    if project_match is None:
+                        raise ValueError(
+                            f"{addon_name}: ForgeCDN URLs require curseforgeProjectId"
+                        )
+                    curseforge_project_id = project_match.group(1)
+                new_url, revision, version = latest_url(
+                    url, kind, curseforge_project_id
+                )
                 old_version = re.search(r'\bversion\s*=\s*"([^"]+)";', block)
                 version_changed = version is not None and (
                     old_version is None or old_version.group(1) != version
