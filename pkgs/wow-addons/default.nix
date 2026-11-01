@@ -27,4 +27,5 @@ in {
   opie = import ./opie.nix addonLib;
   enhance-qol = import ./enhance-qol.nix addonLib;
   gatherlite = import ./gatherlite.nix addonLib;
+  spoken = import ./spoken.nix addonLib;
 }
