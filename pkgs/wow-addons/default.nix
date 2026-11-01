@@ -25,4 +25,5 @@ in {
   snake-says = import ./snake-says.nix addonLib;
   oilvl = import ./oilvl.nix addonLib;
   opie = import ./opie.nix addonLib;
+  enhance-qol = import ./enhance-qol.nix addonLib;
 }
