@@ -26,6 +26,7 @@ in {
   oilvl = import ./oilvl.nix addonLib;
   opie = import ./opie.nix addonLib;
   enhance-qol = import ./enhance-qol.nix addonLib;
+  ellesmere-ui = import ./ellesmere-ui.nix addonLib;
   gatherlite = import ./gatherlite.nix addonLib;
   spoken = import ./spoken.nix addonLib;
 }
