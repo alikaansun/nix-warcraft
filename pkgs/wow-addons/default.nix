@@ -29,4 +29,5 @@ in {
   ellesmere-ui = import ./ellesmere-ui.nix addonLib;
   gatherlite = import ./gatherlite.nix addonLib;
   spoken = import ./spoken.nix addonLib;
+  baganator = import ./baganator.nix addonLib;
 }
