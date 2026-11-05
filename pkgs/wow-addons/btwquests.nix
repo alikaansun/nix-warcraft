@@ -2,9 +2,9 @@ addonLib:
 with addonLib; {
   core = zipAddon {
     name = "btwquests";
-    version = "2.65.0";
-    url = "https://cdn.wowinterface.com/downloads/getfile.php?id=24680&d=1792018182&minion";
-    sha256 = "1xca6fd2wj7irhsi5nk7symf37kq8aqqpmsy6gkzjhyl46r84dva";
+    version = "2.67.0";
+    url = "https://cdn.wowinterface.com/downloads/getfile.php?id=24680&d=1793823695&minion";
+    sha256 = "0nn3dxafl3kb3qdw73lflgss9cdcpqibi71grl4y4wx9h6f5rh43";
   };
   burningcrusade = zipAddon {
     name = "btwquests-the-burning-crusade";
