@@ -2,7 +2,7 @@
 zipAddon {
   name = "EnhanceQoL";
   curseforgeProjectId = 1076354;
-  url = "https://edge.forgecdn.net/files/9461/596/EnhanceQoL-13.17.4.zip";
-  sha256 = "1634a5qpi6ch7f5gr4yk8qsh01d5fqaah5qsfcdr3nd2am2sbswv";
-  version = "13.17.4";
+  url = "https://edge.forgecdn.net/files/9481/804/EnhanceQoL-13.17.6.zip";
+  sha256 = "0yi3zqfcvkwv8dr8p06safd7w3f1fdjfjn0m8iv0liywndxy5p9b";
+  version = "13.17.6";
 }
