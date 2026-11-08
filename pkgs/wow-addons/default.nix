@@ -29,6 +29,7 @@ in {
   ellesmere-ui = import ./ellesmere-ui.nix addonLib;
   gatherlite = import ./gatherlite.nix addonLib;
   whats-training = import ./whats-training.nix addonLib;
+  rxp-guides = import ./rxp-guides.nix addonLib;
   spoken = import ./spoken.nix addonLib;
   baganator = import ./baganator.nix addonLib;
 }
