@@ -31,4 +31,5 @@ in {
   whats-training = import ./whats-training.nix addonLib;
   spoken = import ./spoken.nix addonLib;
   baganator = import ./baganator.nix addonLib;
+  syndicator = import ./syndicator.nix addonLib;
 }
